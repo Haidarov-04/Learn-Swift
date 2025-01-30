@@ -1,0 +1,16 @@
+Swift
+OOP
+XCode
+UIKit
+SwiftUI
+CoreData, UserDefaults
+Networking, APIs
+GCD
+NotificationCenter
+Push Notifications
+Security, KeyChain
+Camera, GPS, TouchID, FaceID
+Gesture Recnize
+Widjetkit
+Architecture
+Git
