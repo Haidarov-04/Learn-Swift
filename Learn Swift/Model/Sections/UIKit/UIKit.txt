@@ -1,1 +1,19 @@
-uikit
+Что такое UIKit?
+UIViewController и его жизненный цикл
+Основные элементы интерфейса
+NSLayoutConstraint и anchors
+UIStackView (группировка элементов)
+Работа с Safe Area
+UIScrollView (адаптивные экраны)
+UINavigationController и pushViewController
+UITabBarController (меню внизу)
+Передача данных между экранами (prepare(for segue:), delegate)
+UITableView (списки, ячейки, делегаты)
+UICollectionView (сетки, кастомные ячейки)
+Работа с динамическими данными
+SnapKit
+CoreLocation
+MapKit
+
+
+

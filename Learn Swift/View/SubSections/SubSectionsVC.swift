@@ -91,6 +91,4 @@ extension SubSectionVC: UITableViewDelegate, UITableViewDataSource{
         cell.selectionStyle = .none
         return cell
     }
-    
-    
 }

@@ -1,1 +1,3 @@
-coredata
+Что такое CoreData?
+Что такое UserDefaults?
+

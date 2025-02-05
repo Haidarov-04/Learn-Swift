@@ -1,1 +1,18 @@
-swiftui
+Что такое SwiftUI?
+Text, Image, Button, TextField
+VStack, HStack, ZStack (размещение элементов)
+Spacer, Divider, Padding, Frame
+@State (управление состоянием)
+SwiftUI Preview
+NavigationStack и NavigationLink
+TabView (меню внизу)
+Sheet (модальные окна)
+@Binding, @ObservedObject, @EnvironmentObject (передача данных между экранами)
+ List и ForEach
+ Кастомные ячейки в List
+LazyVStack, LazyHStack (ленивая загрузка)
+withAnimation {} (простые анимации)
+Animation.spring(), Animation.easeInOut()
+Gesture (тапы, свайпы, long press)
+
+
