@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import SnapKit
+import WebKit
 
 class DetailVC: UIViewController {
-
+    var theme = ""
+    lazy var data = FileMeneger.shared.getHTMLData(theme)
+ lazy var webView: UIWebView = {
+        let web = UIWebView()
+        web.translatesAutoresizingMaskIntoConstraints = false
+        web.loadHTMLString(data, baseURL: nil)
+     web.backgroundColor = .customBlue2
+        return web
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+        view.backgroundColor = .customBlue
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupUI() {
+        view.addSubview(webView)
+        webView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.height.equalToSuperview()
+        }
     }
-    */
 
 }

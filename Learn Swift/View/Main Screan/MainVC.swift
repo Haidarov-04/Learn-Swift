@@ -26,10 +26,18 @@ class MainVC: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(MainTableViewCell.self, forCellReuseIdentifier: "main")
         table.separatorStyle = .none
-        table.backgroundColor = .customOrange
+        table.backgroundColor = .customBlue
         table.rowHeight = 90
         table.showsVerticalScrollIndicator = false
         return table
+    }()
+    
+    var splash: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "swift")
+        return image
     }()
     
 
@@ -38,18 +46,18 @@ class MainVC: UIViewController {
         mainSetup()
         delegates()
         setupUI()
+        removeSplash()
     }
-    
-    
-    private func mainSetup() {
-        view.backgroundColor = .customOrange
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        mainSetup()
+    }
+    
+    private func mainSetup() {
+        view.backgroundColor = .customBlue
         navigationController?.isNavigationBarHidden = true
+        tableView.backgroundColor = .customBlue
     }
     
     private func delegates() {
@@ -58,6 +66,7 @@ class MainVC: UIViewController {
     }
     
     private func setupUI() {
+      
         view.addSubview(label)
         label.snp.makeConstraints { make in
             make.top.equalTo(view.layoutMarginsGuide.snp.top)
@@ -71,6 +80,21 @@ class MainVC: UIViewController {
             make.height.equalToSuperview().multipliedBy(0.9)
             make.width.equalToSuperview()
         }
+        view.addSubview(splash)
+        splash.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.height.equalToSuperview()
+        }
+    }
+    
+    func removeSplash(){
+            UIView.animate(withDuration: 5, animations: {
+                self.splash.alpha = 0.0
+                
+            })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+            self.splash.removeFromSuperview()
+        }
     }
     
 }
@@ -83,7 +107,7 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "main", for: indexPath) as! MainTableViewCell
         cell.sectionLabel.text = data[indexPath.row]
-        cell.backgroundColor = .customOrange
+        cell.backgroundColor = .customBlue
         cell.selectionStyle = .none
         return cell
     }

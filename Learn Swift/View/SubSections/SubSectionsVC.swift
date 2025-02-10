@@ -10,7 +10,6 @@ import SnapKit
 
 class SubSectionVC: UIViewController {
     var sectionName = ""
-    
     lazy var data = FileMeneger.shared.getDataAsArray(sectionName)
     
     lazy var label: UILabel = {
@@ -31,8 +30,6 @@ class SubSectionVC: UIViewController {
         table.backgroundColor = .orange
         table.rowHeight = 90
         table.showsVerticalScrollIndicator = false
-        
-        
         return table
     }()
     
@@ -62,13 +59,6 @@ class SubSectionVC: UIViewController {
     }
     
     private func setupUI() {
-//        view.addSubview(label)
-//        label.snp.makeConstraints { make in
-//            make.top.equalTo(view.layoutMarginsGuide.snp.top)
-//            make.centerX.equalToSuperview()
-//            make.left.right.equalToSuperview()
-//        }
-        
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.layoutMarginsGuide.snp.top)
@@ -90,5 +80,11 @@ extension SubSectionVC: UITableViewDelegate, UITableViewDataSource{
         cell.backgroundColor = .orange
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailVC()
+        vc.theme = data[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
