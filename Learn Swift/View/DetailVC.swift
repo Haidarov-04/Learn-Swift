@@ -12,27 +12,52 @@ import WebKit
 class DetailVC: UIViewController {
     var theme = ""
     lazy var data = FileMeneger.shared.getHTMLData(theme)
- lazy var webView: UIWebView = {
+    lazy var webView: UIWebView = {
         let web = UIWebView()
         web.translatesAutoresizingMaskIntoConstraints = false
         web.loadHTMLString(data, baseURL: nil)
-     web.backgroundColor = .customBlue2
+        web.backgroundColor = .customBlue2
         return web
+    }()
+    
+    var loader: UIActivityIndicatorView = {
+        let loader = UIActivityIndicatorView()
+        loader.color = .white
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        loader.startAnimating()
+        return loader
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewParametrs()
+        subViews()
         setupUI()
-        view.backgroundColor = .customBlue
+        
+     
     }
-
-    func setupUI() {
+    func viewParametrs() {
+        view.backgroundColor = .customBlue
+        title = theme
+    }
+    
+    func subViews() {
         view.addSubview(webView)
-        webView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-            make.width.height.equalToSuperview()
+        view.addSubview(loader)
+        
+    }
+    
+    func setupUI() {
+        loader.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+            self.loader.removeFromSuperview()
+            self.webView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+                make.width.height.equalToSuperview()
+            }
         }
     }
-
+    
 }

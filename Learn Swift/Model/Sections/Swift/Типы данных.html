@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: rgb(0, 136, 255);
+      text-align: justify;
+      color: white;
+      line-height: 30px;
+      font-size: 20px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: inherit;
+    }
+
+    .import {
+      color: rgb(178, 52, 130);
+    }
+
+    .nameF {
+      color: white;
+    }
+
+    .keyword {
+      color: rgb(116, 125, 230);
+    }
+
+    .variable {
+      color: rgb(0, 200, 255);
+    }
+
+    .equal {
+      color: white;
+    }
+
+    .literal {
+      color: red;
+    }
+
+    .type{
+      color: rgb(116, 125, 230);
+    }
+
+    .coding {
+      border-radius: 10px;
+      background-color: black;
+      font-size: 15px;
+      width: 100%;
+      
+    }
+    pre{
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>
+    В этой статье мы продолжаем изучать программирование на Swift, языке, с помощью которого создаются приложения для
+    iOS и программы для OS X. Сегодня вас ждет обзор типов данных языка программирования Swift, а также немного кода.
+  </h3>
+  <h5>
+    При написании кода мы работаем с разными типами данных Swift. Базовые типы, которые используются чаще всего:
+  </h5>
+  <p>
+    String (текстовая строка);<br>
+    Int (целое число);<br>
+    Float (32-битное числоb с плавающей точкой);<br>
+    Double (64-битное число с плавающей точкой для более длинных переменных);<br>
+    Bool (логическое значение «true» или «false»).<br>
+  </p>
+
+  <h5>
+    Swift обрабатывает их всех по отдельности. Посмотрим на особенности типов данных Swift.
+  </h5>
+  <h3>
+    Тип String
+  </h3>
+  <p>
+    В Swift тип String используется для работы со строками. Это ссылочный тип (reference type), но в Swift он реализован как value type (значимый тип), что означает, что при передаче строки она копируется, а не передаётся по ссылке.
+  </p>
+  <p>
+    Swift знает, что переменная name должна содержать строку, поскольку при ее создании мы ввели текстовое значение "Swift Language":
+  </p>
+
+  <pre class="coding">
+    <code>
+  1 <span class="import">import</span> <span class="nameF">Foundation</span>
+  2 <span class="keyword">var</span> <span class="variable">name</span> <span class="equal">=</span> <span class="literal">"Tim McGraw"</span>
+    </code>
+</pre>
+
+<p>
+Если переписать код следующим образом, наш проект перестанет работать:
+</p>
+
+<pre class="coding">
+  <code>
+ 1 <span class="import">import</span> <span class="nameF">Foundation</span>
+ 2 <span class="keyword">var</span> <span class="variable">name</span> 
+ 3 <span class="variable">name</span> <span class="equal">=</span> <span class="literal">"Swift Language"</span>
+  </code>
+</pre>
+<p>
+Xcode выдаст сообщение об ошибке: «Type annotation missing in pattern», что переводится буквально как: «Я не могу
+определить тип данных, потому что вы не предоставили достаточно информации».
+
+Как поступить в такой ситуации? На самом деле у нас есть два варианта действий: либо инициировать переменную с
+первоначальным значением, либо указать ее тип. Создадим переменную, указав ее тип (String) после двоеточия, а начальное
+значение присвоим позже в любой части кода:
+</p>
+<pre class="coding">
+  <code>
+ 1 <span class="import">import</span> <span class="nameF">Foundation</span>
+ 2 <span class="keyword">var</span> <span class="variable">name</span> <span class="type">String</span> 
+ 3 <span class="variable">name</span> <span class="equal">=</span> <span class="literal">"Swift Language"</span>
+  </code>
+</pre>
+<p>
+Такая запись не приведет к ошибке, поскольку Swift знает, какой тип данных переменная name получит в будущем.
+
+Обратите внимание: чтобы ваш код был «чистым», не ставьте пробел перед двоеточием.
+
+Swift всегда стремится знать заранее, какому типу данных соответствует определение каждой новой переменной и константы.
+И это хорошо с точки зрения разработчика, ведь в таком случае за него уже реализован механизм устранения возможных
+ошибок, связанных с несоответствием вводимого значения заданному в определении типу данных. Например, Swift откажется
+присвоить числовое значение строковой переменной.
+</p>
+<h3>
+Тип Int
+</h3>
+<p>
+Попробуем создать новую переменную с типом Int, которая содержит целое число, т.е. число без дробной части. Это могут
+быть как положительные (простые), так и отрицательные целые числа: 3, 30, 300 ...
+</p>
+<pre class="coding">
+  <code>
+ 1 <span class="import">import</span> <span class="nameF">Foundation</span>
+ 2 <span class="keyword">var</span> <span class="variable">name</span> <span class="type">String</span> 
+ 3 <span class="variable">name</span> <span class="equal">=</span> <span class="literal">"Swift Language"</span>
+ 4 <span class="keyword">var</span> <span class="variable">age</span> <span class="type">Int</span> 
+ 5 <span class="variable">age</span> <span class="equal">=</span> <span class="literal">11</span>
+  </code>
+</pre>
+<p>
+Мы инициировали строковую переменную name и целочисленную переменную age.
+</p>
+<p>
+Обратите внимание на обязательные требования: в языке Swift принято стандартное соглашение о кодировании, согласно
+которому имена переменных, констант, методов, функций начинаются с прописной буквы (name, age), а типов данных — с
+заглавной (String, Int).
+</p><p>
+Теперь, когда у нас есть две переменные с различными типами данных, мы можем проверить работу механизма соответствия
+типов в действии. Сделаем следующее:
+</p>
+<pre class="coding">
+  <code>
+ 1 <span class="variable">name</span> <span class="equal">=</span> <span class="literal">"Swift Language"</span>
+ 2 <span class="variable">age</span> <span class="equal">=</span> <span class="literal">11</span>
+  </code>
+</pre>
+<p>
+В этом коде мы пытаемся присвоить целое число строковой переменной и строку — целочисленной переменной. К счастью, Xcode
+сообщит нам об ошибках, соблюдая негласное соглашение: программист сообщает о том, какие данные собирается хранить в
+переменных, а среда берет на себя функции контроля за их строгим и неукоснительным соблюдением.
+
+Перед тем, как двигаться дальше, удалите или закомментируйте эти две строки, в противном случае весь последующий код в
+playground работать не будет.
+</p>
+<h3>
+Типы Float и Double
+</h3>
+<p>
+В Swift типы данных Float и Double используются для хранения чисел с плавающей запятой, например: 3,1; 3,141; 3,1415926;
+–1677,5. Они отличаются между собой только количеством отображаемых цифр в десятичной части числа. Компания Apple
+рекомендует всегда использовать тип Double по умолчанию.
+</p>
+<p>
+Введите следующий код в playground:
+</p>
+<pre class="coding">
+  <code>
+ 1 <span class="import">import</span> <span class="nameF">Foundation</span>
+ 2 <span class="keyword">var</span> <span class="variable">latitude</span> <span class="type">Double</span> 
+ 3 <span class="variable">latitude</span> <span class="equal">=</span> <span class="literal">36.166667</span>
+ 4 <span class="keyword">var</span> <span class="variable">longitude</span> <span class="type">Float</span> 
+ 5 <span class="variable">longitude</span> <span class="equal">=</span> <span class="literal">–86.783333</span>
+  </code>
+</pre>
+<p>
+Обратите внимание, что при выводе результатов в правой части рабочей области playground переменная longitude где–то
+«потеряла» цифру «3» в конце. Чтобы лучше понять и разобраться с тем, что происходит, немного изменим наш предыдущий
+код:
+</p>
+
+<pre class="coding">
+  <code>
+ 1 <span class="import">import</span> <span class="nameF">Foundation</span>
+ 2 <span class="keyword">var</span> <span class="variable">longitude</span> <span class="type">Float</span> 
+ 3 <span class="variable">longitude</span> <span class="equal">=</span> <span class="literal">–186.783333</span>
+ 4 <span class="variable">longitude</span> <span class="equal">=</span> <span class="literal">–1286.783333</span>
+ 5 <span class="variable">longitude</span> <span class="equal">=</span> <span class="literal">–12386.783333</span>
+ 6 <span class="variable">longitude</span> <span class="equal">=</span> <span class="literal">–123486.783333</span>
+ 7 <span class="variable">longitude</span> <span class="equal">=</span> <span class="literal">–86.783333</span>
+ 8 <span class="variable">longitude</span> <span class="equal">=</span> <span class="literal">–1234586.783333</span>
+  </code>
+</pre>
+<p>
+Переменная longitude имеет тип Float, в котором предусмотрено 8 бит для хранения данных. Это накладывает ограничения на
+отображение целой и дробной части — Swift постоянно пытается «выровнять» число, «забирая» разряды из дробной и добавляя
+их в целую часть числа. Чем ближе левая сторона к своему максимуму, тем меньше места остается для правой!
+</p>
+<p>
+Типы данных Float и Double в playground
+</p>
+<h4>
+Изменив тип с Float на Double, мы получим корректное отображение всех чисел:
+</h4>
+
+<pre class="coding">
+  <code>
+ 1 <span class="import">import</span> <span class="nameF">Foundation</span>
+ 2 <span class="keyword">var</span> <span class="variable">longitude</span> <span class="type">Double</span> 
+  </code>
+</pre>
+<p>
+В этом примере показано основное отличие между типами Double и Float. Оно заключается в двойной точности хранения и
+отображения хранимых чисел. Отдельно хочу обратить внимание на то, что при попытке ввода большого числа вроде
+123456789,123456789 результат будет округлен до 123456789,1234568.
+</p>
+<h3>
+Тип Boolean
+</h3>
+<p>
+У Swift есть встроенный тип данных, который используется для хранения значений «true» и «false». Он называется Boolean
+или коротко Bool:
+</p>
+<pre class="coding">
+  <code>
+ 1 <span class="import">import</span> <span class="nameF">Foundation</span>
+ 2 <span class="keyword">var</span> <span class="variable">stayOutTooLate</span> <span class="type">Bool</span> 
+ 3 <span class="variable">stayOutTooLate</span> <span class="equal">=</span> <span class="literal">true</span>
+ 2 <span class="keyword">var</span> <span class="variable">nothingInBrain</span> <span class="type">Bool</span> 
+ 3 <span class="variable">nothingInBrain</span> <span class="equal">=</span> <span class="literal">true</span>
+ 2 <span class="keyword">var</span> <span class="variable">missABeat</span> <span class="type">Bool</span> 
+ 3 <span class="variable">missABeat</span> <span class="equal">=</span> <span class="literal">false</span>
+  </code>
+</pre>
+<p>
+Подведем итоги. Мы узнали об основных типах данных в языке Swift (String, Int, Float, Double и Bool), а также о
+механизме предотвращения ввода значения переменной, которое не отвечает ее типу. В следующей статье мы расскажем об
+аннотировании типов данных (в Swift аннотации — это необязательные элементы кода, язык определяет тип данных, исходя из
+присвоенного значения), а также о интерполяции строк.
+</p>
+
+<h5>
+  Источник: <a href="https://www.hackingwithswift.com">Hacking with Swift</a>
+</h5>
+
+</body>
+
+</html>
