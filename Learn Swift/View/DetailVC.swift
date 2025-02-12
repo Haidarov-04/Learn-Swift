@@ -12,11 +12,11 @@ import WebKit
 class DetailVC: UIViewController {
     var theme = ""
     lazy var data = FileMeneger.shared.getHTMLData(theme)
-    lazy var webView: UIWebView = {
-        let web = UIWebView()
+    
+    lazy var webView: WKWebView = {
+        let web = WKWebView()
         web.translatesAutoresizingMaskIntoConstraints = false
-        web.loadHTMLString(data, baseURL: nil)
-        web.backgroundColor = .customBlue2
+        web.backgroundColor = .customBlue
         return web
     }()
     
@@ -32,9 +32,8 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         viewParametrs()
         subViews()
+        loadHtml()
         setupUI()
-        
-     
     }
     func viewParametrs() {
         view.backgroundColor = .customBlue
@@ -45,6 +44,12 @@ class DetailVC: UIViewController {
         view.addSubview(webView)
         view.addSubview(loader)
         
+    }
+    
+    func loadHtml(){
+        if let file = data.0, let dir = data.1 {
+            webView.loadFileURL(file, allowingReadAccessTo: dir)
+        }
     }
     
     func setupUI() {

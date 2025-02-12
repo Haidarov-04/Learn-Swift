@@ -32,15 +32,18 @@ public class FileMeneger{
         return data
     }
     
-    func getHTMLData(_ name: String)->String{
-        var data = ""
-      
-        if let dataURL = Bundle.main.url(forResource: name, withExtension: "html") {
-            if let dataWords = try? String(contentsOf: dataURL) {
-                data = dataWords
-            }
+    func getHTMLData(_ name: String)->(URL?, URL?){
+        if let filePath = Bundle.main.path(forResource: name, ofType: "html") {
+            let fileURL = URL(fileURLWithPath: filePath)
+            let dirURL = fileURL.deletingLastPathComponent()
+            return (fileURL, dirURL)
+        }else{
+            return (nil, nil)
         }
-        return data
     }
+    
 
+    func cssFile(){
+        
+    }
 }

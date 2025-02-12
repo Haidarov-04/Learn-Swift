@@ -1,5 +1,69 @@
-body{
+body {
     background-color: rgb(0, 136, 255);
     text-align: justify;
     color: white;
+    line-height: 30px;
+    font-size: 20px;
+  }
+.title{
+    color: orange;
 }
+  ul {
+    list-style: none;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: inherit;
+  }
+
+  .import {
+    color: rgb(178, 52, 130);
+  }
+
+  .nameF {
+    color: white;
+  }
+
+  .keyword {
+    color: rgb(116, 125, 230);
+  }
+
+  .variable {
+    color: rgb(0, 200, 255);
+  }
+
+  .equal {
+    color: white;
+  }
+
+  .literal {
+    color: red;
+  }
+
+  .type{
+    color: rgb(116, 125, 230);
+  }
+
+  .func{
+    color: rgb(255, 238, 0);
+  }
+
+  .data{
+    color: green;
+  }
+
+  .coding {
+    border-radius: 10px;
+    background-color: black;
+    font-size: 15px;
+    width: 100%;
+    
+  }
+  pre{
+    margin: 0;
+  }
+
